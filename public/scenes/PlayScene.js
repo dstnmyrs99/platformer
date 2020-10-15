@@ -63,14 +63,15 @@ class PlayScene extends Phaser.Scene {
         frameRate: 16,
         repeat: 0
     });
-      this.add.image(500, 120, 'bg');
-    this.cursor = this.input.keyboard.createCursorKeys();
-    this.floor = this.physics.add.group({
+      this.bg = this.add.sprite(width / 2, height / 2, 'bg').setOrigin(0.5);
+      this.bg.setDisplaySize(width, height);
+      this.cursor = this.input.keyboard.createCursorKeys();
+      this.floor = this.physics.add.group({
         immovable: true,
         allowGravity: false,
         key: 'ground',
-        repeat: 10,
-        setXY: { x: 70, y: 340, stepX: 89 },
+        repeat: 15,
+        setXY: { x: 70, y: height - 43, stepX: 89 },
         setScale: { x: 0.7, y: 0.7}
     });
 
@@ -91,13 +92,13 @@ class PlayScene extends Phaser.Scene {
       this.player.play('jump').once('animationcomplete', () => this.player.play('walk'));
       speed -= 5;
     }
-    if(this.player.y > 900){
+    if(this.player.y > height){
       this.scene.start('TitleScene');
     }
     this.floor.children.iterate(function (child) {
         child.body.velocity.x = speed;
         if(child.x < -40){
-          child.x = 1000 + (Math.random()*100);
+          child.x = width + (Math.random()*100);
         }
   });
 }

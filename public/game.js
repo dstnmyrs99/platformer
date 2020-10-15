@@ -1,7 +1,9 @@
 let speed = -150;
+let width = window.innerWidth * window.devicePixelRatio;
+let height = window.innerHeight * window.devicePixelRatio;
 const config = {
-  width: 640,
-  height: 360,
+  width: width,
+  height: height,
   scene: [
     TitleScene,
     PlayScene,
