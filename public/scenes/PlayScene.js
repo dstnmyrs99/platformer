@@ -63,17 +63,17 @@ class PlayScene extends Phaser.Scene {
         frameRate: 16,
         repeat: 0
     });
-
+      this.add.image(500, 120, 'bg');
     this.cursor = this.input.keyboard.createCursorKeys();
     this.floor = this.physics.add.group({
         immovable: true,
         allowGravity: false,
         key: 'ground',
         repeat: 10,
-        setXY: { x: 70, y: 540, stepX: 89 },
+        setXY: { x: 70, y: 340, stepX: 89 },
         setScale: { x: 0.7, y: 0.7}
     });
-      this.add.image(500, 120, 'bg');
+
       this.player = this.physics.add.sprite(200, 100, 'dino1').setScale(0.1).setSize(300, 400).setOffset(20, 0);
       this.player.play('walk');
       this.physics.add.collider(this.floor, this.player);

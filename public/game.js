@@ -1,7 +1,7 @@
 let speed = -150;
 const config = {
-  width: 800,
-  height: 575,
+  width: 640,
+  height: 360,
   scene: [
     TitleScene,
     PlayScene,
