@@ -20,6 +20,7 @@ class TitleScene extends Phaser.Scene {
       fontStyle: 'bold',
     }).setInteractive( {useHandCursor: true}).on('pointerdown', () => {
       speed = -150;
+      this.scale.startFullscreen();
        this.scene.start('PlayScene');
      });
 
