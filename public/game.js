@@ -1,6 +1,6 @@
 let speed = -150;
-let width = window.innerWidth * window.devicePixelRatio;
-let height = window.innerHeight * window.devicePixelRatio;
+let width = window.innerWidth;
+let height = window.innerHeight;
 const config = {
   width: width,
   height: height,
@@ -8,7 +8,7 @@ const config = {
     TitleScene,
     PlayScene,
   ],
-  type: Phaser.AUTO,
+  type: Phaser.CANVAS,
   audio: {
     disableWebAudio: true
   },
