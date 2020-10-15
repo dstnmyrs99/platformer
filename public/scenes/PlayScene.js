@@ -25,7 +25,7 @@ class PlayScene extends Phaser.Scene {
       this.load.image('dino6','assets/png/Run(6).png');
       this.load.image('dino7','assets/png/Run(7).png');
       this.load.image('dino8','assets/png/Run(8).png');
-      this.load.image('ground','assets/tiles/2.png');
+      this.load.image('ground','assets/Tiles/2.png');
   }
 
   create(){
