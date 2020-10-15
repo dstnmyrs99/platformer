@@ -27,6 +27,8 @@ class BootScene extends Phaser.Scene {
       this.load.image('dino7','assets/png/Run(7).png');
       this.load.image('dino8','assets/png/Run(8).png');
       this.load.image('ground','assets/Tiles/2.png');
+      this.load.image('ground2','assets/Tiles/14.png');
+
   }
   create(){
     this.anims.create({
