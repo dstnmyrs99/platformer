@@ -46,17 +46,26 @@ class PlayScene extends Phaser.Scene {
   }
 
   update(){
+    console.log(this.player.body.velocity.y);
     this.player.body.velocity.x = 0;
-    if (this.cursor.up.isDown && this.player.body.touching.down){
-    this.player.body.velocity.y = -300;
-    this.player.play('jump').once('animationcomplete', () => this.player.play('walk'));
-    speed -= 5;
-    }
-    if(this.input.activePointer.isDown && this.player.body.touching.down){
-      this.player.body.velocity.y = -300;
-      this.player.play('jump').once('animationcomplete', () => this.player.play('walk'));
-      speed -= 5;
-    }
+    if (this.cursor.up.isDown || this.input.activePointer.isDown){
+      if(jumpTimer === 0  && this.player.body.touching.down){
+        this.player.play('jump').once('animationcomplete', () => this.player.play('walk'));
+        speed -= 5;
+        jumpTimer = 1;
+        this.player.body.velocity.y = -200;
+      }else if(jumpTimer > 0 && jumpTimer < 20){
+        jumpTimer ++;
+        this.player.body.velocity.y = -200 - (jumpTimer);
+      }
+          }else{
+            jumpTimer = 0;
+          }
+    // if(this.input.activePointer.isDown && this.player.body.touching.down){
+    //   this.player.body.velocity.y = -200;
+    //   this.player.play('jump').once('animationcomplete', () => this.player.play('walk'));
+    //   speed -= 5;
+    //}
     if(this.player.y > height){
       this.scene.start('TitleScene');
     }
