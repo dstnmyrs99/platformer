@@ -8,7 +8,11 @@ class PlayScene extends Phaser.Scene {
   }
 
   create(){
-
+    this.death = this.sound.add('death');
+    this.bgMusic = this.sound.add('bg', { loop: true });
+    this.bgMusic.play();
+    this.jump = this.sound.add('jump');
+    this.pickupSound = this.sound.add('pickup');
       this.bg = this.add.sprite(width / 2, height / 2, 'bg').setOrigin(0.5);
       this.bg.setDisplaySize(width, height);
       this.cursor = this.input.keyboard.createCursorKeys();
@@ -16,7 +20,7 @@ class PlayScene extends Phaser.Scene {
         immovable: true,
         allowGravity: false,
         key: 'ground',
-        repeat: 12,
+        repeat: width / 75,
         setXY: { x: 70, y: height - 43, stepX: 89 },
         setScale: { x: 0.7, y: 0.7}
     });
@@ -24,7 +28,7 @@ class PlayScene extends Phaser.Scene {
       immovable: true,
       allowGravity: false,
       key: 'ground2',
-      repeat: 5,
+      repeat: width / 100,
       setXY: { x: 1000, y: height - 200, stepX: 300, stepY: -22},
       setScale: { x: 0.7, y: 0.2}
   });
@@ -32,7 +36,7 @@ class PlayScene extends Phaser.Scene {
       immovable: false,
       allowGravity: false,
       key: 'shroom',
-      repeat: 4,
+      repeat: width  / 100,
       setXY: { x: 600, y: height - 100, stepX: 100 },
       setScale: { x: 0.4, y: 0.4}
   });
@@ -46,10 +50,11 @@ class PlayScene extends Phaser.Scene {
   }
 
   update(){
-    console.log(this.player.body.velocity.y);
     this.player.body.velocity.x = 0;
     if (this.cursor.up.isDown || this.input.activePointer.isDown){
       if(jumpTimer === 0  && this.player.body.touching.down){
+        this.jump.play();
+
         this.player.play('jump').once('animationcomplete', () => this.player.play('walk'));
         speed -= 5;
         jumpTimer = 1;
@@ -67,7 +72,9 @@ class PlayScene extends Phaser.Scene {
     //   speed -= 5;
     //}
     if(this.player.y > height){
-      this.scene.start('TitleScene');
+      this.death.play();
+      this.bgMusic.stop();
+      this.scene.start('GameOverScene');
     }
     this.floor.children.iterate(function (child) {
         child.body.velocity.x = speed;
@@ -80,7 +87,7 @@ class PlayScene extends Phaser.Scene {
       child.body.velocity.x = speed - 50;
       if(child.x < -40){
         child.x = width + (Math.random()*400);
-        child.y = height - 100 - (Math.random()*height);
+        child.y = Phaser.Math.Between(height - 100, 10 );
 
       }
 });
@@ -88,14 +95,15 @@ class PlayScene extends Phaser.Scene {
       child.body.velocity.x = speed;
       if(child.x < -40){
         child.x = width + (Math.random()*100);
-        child.y = height - 100 - (Math.random()*height);
+        child.y = Phaser.Math.Between(height - 100, 10 );
       }
 });
 }
   collect(player, shroom){
     score += 1;
     shroom.x = width + (Math.random()*100);
-    shroom.y = height - 100 - (Math.random()*height);
+    shroom.y = Phaser.Math.Between(height - 100, 10 );
     this.scoreText.setText('Score: ' + score);
+    this.pickupSound.play();
   }
 }

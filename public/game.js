@@ -11,6 +11,7 @@ const config = {
     BootScene,
     TitleScene,
     PlayScene,
+    GameOverScene,
   ],
   type: Phaser.CANVAS,
   audio: {

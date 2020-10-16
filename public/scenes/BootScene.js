@@ -28,6 +28,10 @@ class BootScene extends Phaser.Scene {
       this.load.image('dino8','assets/png/Run(8).png');
       this.load.image('ground','assets/Tiles/2.png');
       this.load.image('ground2','assets/Tiles/14.png');
+      this.load.audio('pickup', 'audio/Pickup.wav');
+      this.load.audio('death', 'audio/PlayerDeath.wav');
+      this.load.audio('jump', 'audio/jump.wav');
+      this.load.audio('bg', 'audio/bg.mp3');
 
   }
   create(){
