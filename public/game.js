@@ -17,9 +17,6 @@ async function postData(url, data = {}){
 
 async function postScores(url, data = {}){
   let newScore = await fetch(url, {method: 'POST',
-      mode: 'no-cors',
-      cache: 'no-cache',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
