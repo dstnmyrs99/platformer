@@ -20,7 +20,7 @@ class PlayScene extends Phaser.Scene {
         immovable: true,
         allowGravity: false,
         key: 'ground',
-        repeat: 1,//width / 65,
+        repeat: width / 65,
         setXY: { x: 70, y: height - 43, stepX: 89 },
         setScale: { x: 0.7, y: 0.7}
     });
