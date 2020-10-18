@@ -112,8 +112,8 @@ class PlayScene extends Phaser.Scene {
     gameIsOver = true;
     if(score > hiScores[4].score){
       this.name = prompt("Enter your name");
-      postScores('http://localhost:8080/newScore', {name: this.name, score: score})
-      .then(this.newScores2 = postData('http://localhost:8080/scores').then((newName) => {
+      postScores('/newScore', {name: this.name, score: score})
+      .then(this.newScores2 = postData('/scores').then((newName) => {
    hiScores = newName;
 
 }))
