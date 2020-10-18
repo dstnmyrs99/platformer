@@ -10,13 +10,7 @@ let gameIsOver = false;
 async function postData(url, data = {}){
   let highScores = await fetch(url, {method: 'GET',
       mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'include', // needed for cookies
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      redirect: 'follow',
-      body: JSON.stringify(data),});
+      cache: 'no-cache',});
    const json = await highScores.json();
    return json;
 }
