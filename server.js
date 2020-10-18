@@ -31,6 +31,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 app.get('/scores', function (req, res) {
+    console.log('server');
   pool.query(query, (err, results) => {
     res.json(results.rows)
       if (err) {
