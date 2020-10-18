@@ -20,7 +20,7 @@ class PlayScene extends Phaser.Scene {
         immovable: true,
         allowGravity: false,
         key: 'ground',
-        repeat: width / 75,
+        repeat: 1,//width / 65,
         setXY: { x: 70, y: height - 43, stepX: 89 },
         setScale: { x: 0.7, y: 0.7}
     });
@@ -74,7 +74,9 @@ class PlayScene extends Phaser.Scene {
     if(this.player.y > height){
       this.death.play();
       this.bgMusic.stop();
-      this.scene.start('GameOverScene');
+      if(!gameIsOver){
+      this.gameover();
+    }
     }
     this.floor.children.iterate(function (child) {
         child.body.velocity.x = speed;
@@ -105,5 +107,17 @@ class PlayScene extends Phaser.Scene {
     shroom.y = Phaser.Math.Between(height - 100, 10 );
     this.scoreText.setText('Score: ' + score);
     this.pickupSound.play();
+  }
+  gameover(){
+    gameIsOver = true;
+    if(score > hiScores[4].score){
+      this.name = prompt("Enter your name");
+      postScores('http://localhost:8080/newScore', {name: this.name, score: score})
+      .then(this.newScores2 = postData('http://localhost:8080/scores').then((newName) => {
+   hiScores = newName;
+
+}))
+}
+    setTimeout(()=>this.scene.start('GameOverScene'), 1000);
   }
 }
