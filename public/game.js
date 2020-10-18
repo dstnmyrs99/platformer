@@ -8,9 +8,7 @@ let gameIsOver = false;
 
 
 async function postData(url, data = {}){
-  let highScores = await fetch(url, {method: 'GET',
-      mode: 'no-cors',
-      cache: 'no-cache',});
+  let highScores = await fetch(url, {method: 'GET'});
    const json = await highScores.json();
    return json;
 }
