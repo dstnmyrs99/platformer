@@ -23,7 +23,7 @@ async function postScores(url, data = {}){
   .then(response => response.json());
 }
 
-this.newScores = postData('http://localhost:8080/scores').then((name)=> {
+this.newScores = postData('/scores').then((name)=> {
   hiScores = name});
 
 
