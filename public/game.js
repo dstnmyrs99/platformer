@@ -33,6 +33,7 @@ const config = {
   scene: [
     BootScene,
     TitleScene,
+    HowToPlayScene,
     PlayScene,
     GameOverScene,
   ],

@@ -5,7 +5,9 @@ class BootScene extends Phaser.Scene {
   }
   preload(){
       this.load.image('shroom','assets/Object/Mushroom.png');
+      this.load.image('shroom2','assets/Object/Mushroom_2.png');
       this.load.image('bg','assets/BG.png');
+      this.load.image('menu','assets/menu.png');
       this.load.image('jump1','assets/png/Jump(1).png');
       this.load.image('jump2','assets/png/Jump(2).png');
       this.load.image('jump3','assets/png/Jump(3).png');
