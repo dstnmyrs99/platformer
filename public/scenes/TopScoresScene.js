@@ -20,7 +20,7 @@ class TopScoresScene extends Phaser.Scene {
 
     this.add.text(width / 2, height - 50, `Start Game`, {
       fontSize: '32px',
-      fill: 'black',
+      fill: 'white',
       fontStyle: 'bold',
     }).setOrigin(0.5).setInteractive( {useHandCursor: true}).on('pointerdown', () => {
       speed = -150;
@@ -29,7 +29,7 @@ class TopScoresScene extends Phaser.Scene {
      });
      this.add.text(width / 2, height - 100, `Main Menu`, {
        fontSize: '32px',
-       fill: 'black',
+       fill: 'white',
        fontStyle: 'bold',
      }).setOrigin(0.5).setInteractive( {useHandCursor: true}).on('pointerdown', () => {
        speed = -150;
