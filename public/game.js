@@ -34,6 +34,7 @@ const config = {
     BootScene,
     TitleScene,
     HowToPlayScene,
+    TopScoresScene,
     PlayScene,
     GameOverScene,
   ],

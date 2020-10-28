@@ -205,19 +205,21 @@ this.powerups.children.iterate(function (child) {
       }
 
       fly(){
-        this.flyText.setText('Flaps remaining: ' + (10 - this.numOfJumps));
+        this.flyText.setText('Flaps remaining: ' + (15 - this.numOfJumps));
           if(jumpTimer === 0){
             this.jump.play();
             this.player.play('jump').once('animationcomplete', () => this.player.play('walk'));
             speed -= 1;
             jumpTimer = 1;
-            this.numOfJumps += 1;
             this.player.body.velocity.y = -200;
+            if(!this.player.body.touching.down){
+              this.numOfJumps += 1;
+            }
           }else if(jumpTimer > 0 && jumpTimer < 20){
             jumpTimer ++;
             this.player.body.velocity.y = -200 - (jumpTimer);
           }
-          if(this.numOfJumps == 10){
+          if(this.numOfJumps == 15){
             this.flyText.setText('');
             this.activePowerup = '';
 

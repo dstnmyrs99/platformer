@@ -18,7 +18,7 @@ Glide: Hold down jump to stay in the air longer `, {
       fill: 'white',
       fontStyle: 'bold',
     }).setOrigin(0.5);
-    this.add.text(width / 2, height / 2, `Start Game`, {
+    this.add.text(width / 2, height / 1.25, `Start Game`, {
       fontSize: '32px',
       fill: 'white',
       fontStyle: 'bold',
