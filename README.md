@@ -1,5 +1,5 @@
-# platformer
-dino platformer game  
+# Dino Bro
+Platformer game  
 Made with Phaser and PostgreSQL for high scores.  
 I made this to stop my son from turning off the WiFi.  
 Try to collect as many mushrooms as you can without falling or being pushed off the screen  

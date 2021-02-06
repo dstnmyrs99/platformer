@@ -11,7 +11,7 @@ class TitleScene extends Phaser.Scene {
     this.bg = this.add.sprite(width / 2, height / 2, 'menu').setOrigin(0.5);
     this.bg.setDisplaySize(width, height);
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.add.text(width / 2, height / 4, `Axle's Game`, {
+    this.add.text(width / 2, height / 4, `Dino Bro`, {
       fontSize: '50px',
       fill: 'black',
       fontStyle: 'bold',
